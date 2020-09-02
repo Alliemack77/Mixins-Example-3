@@ -1,0 +1,86 @@
+@mixin flex-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+@mixin title ($text-color, $size){
+    text-align: center;
+    color: $text-color;
+    font-size: $size;
+}
+
+@mixin btn ($bg-color, $text-color, $radius){
+    background-color: $bg-color;
+    color: $text-color;
+    padding: 1rem 2.5rem;
+    border-radius: $radius;
+}
+
+@mixin hover ($bg-color) {
+    background-color: $bg-color;
+}
+
+.header {
+    background-color: lightblue;
+    @include flex-center;
+    
+
+    &__title {
+        @include title (white, 5rem);
+    } 
+
+    &__btn {
+        @include btn (rgb(3, 3, 109), white, 30px);
+
+        &:hover {
+            @include hover (blue);
+        }
+    }
+}
+
+// .contact {
+//     background-color: #673acc;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     height: 100vh;;
+
+//     &__title {
+//         text-align: center;
+//         color: white;
+//         font-size: 5rem;
+//     }
+
+//     &__btn {
+//         background-color: #301d5c;
+//         color: white;
+//         padding: 1rem 2.5rem;
+//         border-radius: 30px;
+
+//         &:hover {
+//             background-color: purple;
+//         }
+
+//     }
+// }
+
+.contact {
+    background-color: #673acc;
+    @include flex-center;
+
+    &__title {
+        @include title (orange, 10rem);
+    }
+
+    &__btn {
+        @include btn (#301d5c, white, 5px);
+
+        &:hover {
+            @include hover (purple);
+        }
+    }
+}
